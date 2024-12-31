@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,154 +11,219 @@
             margin: 0;
             padding: 0;
         }
+
         header {
-            background-color: #ff9800;
+            background-color: blue;
             color: white;
             text-align: center;
             padding: 1rem;
         }
+
         .container {
             padding: 20px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
+
         .item {
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 10px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
         }
+
         .item img {
             width: 200px;
             height: 250px;
             border-radius: 8px;
         }
+
         .item h3 {
             font-size: 1.2em;
             margin: 10px 0;
         }
+
         .item p {
             font-size: 1em;
             color: #555;
             margin: 5px 0 0;
         }
+
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 152, 0, 0.1);
+            border: 1px solid #ff9800;
+        }
+
+        .logout-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 5px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .logout-button:hover {
+            background: darkred;
+        }
     </style>
+    <script>
+        function openDetails(itemName, itemPrice, itemImage, quantity) {
+            const detailsPage = document.createElement('div');
+            detailsPage.style.position = 'fixed';
+            detailsPage.style.top = 0;
+            detailsPage.style.left = 0;
+            detailsPage.style.width = '100%';
+            detailsPage.style.height = '100%';
+            detailsPage.style.background = 'white';
+            detailsPage.style.zIndex = 1000;
+            detailsPage.style.padding = '20px';
+            detailsPage.style.boxSizing = 'border-box';
+            detailsPage.style.display = 'flex';
+            detailsPage.style.flexDirection = 'column';
+            detailsPage.style.alignItems = 'center';
+            detailsPage.style.justifyContent = 'center';
+            detailsPage.innerHTML = `
+                <a href="#" class="back-button" onclick="closeDetails(event)">×</a>
+                <h1 style="text-align: center;">${itemName}</h1>
+                <img src="${itemImage}" alt="${itemName}" style="width: 300px; height: 400px; margin-top: 20px;">
+                <p style="text-align: center; font-size: 1.5rem; margin-top: 20px;">Price: ₹${itemPrice}</p>
+                <p style="text-align: center; font-size: 1.2rem;">Quantity: ${quantity}</p>
+            `;
+            document.body.appendChild(detailsPage);
+        }
+
+        function closeDetails(event) {
+            event.preventDefault();
+            document.querySelector('.back-button').parentElement.remove();
+        }
+    </script>
 </head>
+
 <body>
     <header>
         <h1>Welcome to RKL & RRG Tiffin Service</h1>
-        <p>Welcome to Home Tiffin Service</p>
         <p>Delicious homemade tiffins delivered to your doorstep!</p>
     </header>
-    <h2 style="text-align:center;">Tiffines</h2>
+    <a href="index.html" class="logout-button">Logout</a>
+
+    <h2 style="text-align:center;">Tiffins</h2>
     <div class="container">
-        <!-- Tiffines -->
-        <div class="item">
+        <div class="item" onclick="openDetails('Idli', 35, 'images/tiffines/idli.webp', '2')">
             <img src="images/tiffines/idli.webp" alt="Idli">
             <h3>Idli</h3>
-            <p>₹35</p>
+            <p>₹35 • 2</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Dosa', 35, 'images/tiffines/dosa.webp', '1')">
             <img src="images/tiffines/dosa.webp" alt="Dosa">
             <h3>Dosa</h3>
-            <p>₹35</p>
+            <p>₹35 • 1</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Vada', 35, 'images/tiffines/vada.webp', '2')">
             <img src="images/tiffines/vada.webp" alt="Vada">
             <h3>Vada</h3>
-            <p>₹35</p>
+            <p>₹35 • 2</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Upma', 35, 'images/tiffines/upma.webp', 'bowl')">
             <img src="images/tiffines/upma.webp" alt="Upma">
             <h3>Upma</h3>
-            <p>₹35</p>
+            <p>₹35 • Bowl</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Puri', 35, 'images/tiffines/puri.webp', '2')">
             <img src="images/tiffines/puri.webp" alt="Puri">
             <h3>Puri</h3>
-            <p>₹35</p>
+            <p>₹35 • 2</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Bonda', 35, 'images/tiffines/bonda.webp', '4')">
             <img src="images/tiffines/bonda.webp" alt="Bonda">
             <h3>Bonda</h3>
-            <p>₹35</p>
+            <p>₹35 • 4</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Uttapam', 35, 'images/tiffines/uttapam.webp', 'bowl')">
             <img src="images/tiffines/uttapam.webp" alt="Uttapam">
             <h3>Uttapam</h3>
-            <p>₹35</p>
+            <p>₹35 • Bowl</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Pesarattu', 35, 'images/tiffines/pesarattu.webp', '1')">
             <img src="images/tiffines/pesarattu.webp" alt="Pesarattu">
             <h3>Pesarattu</h3>
-            <p>₹35</p>
+            <p>₹35 • 1</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Masur Bonda', 35, 'images/tiffines/masur_bonda.webp', '1')">
             <img src="images/tiffines/masur_bonda.webp" alt="Masur Bonda">
             <h3>Masur Bonda</h3>
-            <p>₹35</p>
+            <p>₹35 • 1</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Chitti Punugulu', 35, 'images/tiffines/chitti_punugulu.webp', '10')">
             <img src="images/tiffines/chitti_punugulu.webp" alt="Chitti Punugulu">
             <h3>Chitti Punugulu</h3>
-            <p>₹35</p>
+            <p>₹35 • 10</p>
         </div>
     </div>
+
     <h2 style="text-align:center;">Curries</h2>
     <div class="container">
-        <!-- Curries -->
-        <div class="item">
+        <div class="item" onclick="openDetails('Gutti Vankaya Koora', 25, 'images/curries/gutti_vankaya_koora.webp', '100 gr')">
             <img src="images/curries/gutti_vankaya_koora.webp" alt="Gutti Vankaya Koora">
             <h3>Gutti Vankaya Koora</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Tomato Pappu', 25, 'images/curries/tomato_pappu.webp', '100 gr')">
             <img src="images/curries/tomato_pappu.webp" alt="Tomato Pappu">
             <h3>Tomato Pappu</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Beerakaya Pulusu', 25, 'images/curries/beerakaya_pulusu.webp', '100 gr')">
             <img src="images/curries/beerakaya_pulusu.webp" alt="Beerakaya Pulusu">
             <h3>Beerakaya Pulusu</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Mamidikaya Pappu', 25, 'images/curries/mamidikaya_pappu.webp', '100 gr')">
             <img src="images/curries/mamidikaya_pappu.webp" alt="Mamidikaya Pappu">
             <h3>Mamidikaya Pappu</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Bendakaya Fry', 25, 'images/curries/bendakaya_fry.webp', '100 gr')">
             <img src="images/curries/bendakaya_fry.webp" alt="Bendakaya Fry">
             <h3>Bendakaya Fry</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Chikkudukaya Vepudu', 25, 'images/curries/chikkudukaya_vepudu.webp', '100 gr')">
             <img src="images/curries/chikkudukaya_vepudu.webp" alt="Chikkudukaya Vepudu">
             <h3>Chikkudukaya Vepudu</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Sorakaya Palu Koora', 25, 'images/curries/sorakaya_palu_koora.webp', '100 gr')">
             <img src="images/curries/sorakaya_palu_koora.webp" alt="Sorakaya Palu Koora">
             <h3>Sorakaya Palu Koora</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Avakai Pachadi', 25, 'images/curries/avakai_pachadi.webp', '100 gr')">
             <img src="images/curries/avakai_pachadi.webp" alt="Avakai Pachadi">
             <h3>Avakai Pachadi</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Dondakaya Vepudu', 25, 'images/curries/dondakaya_vepudu.webp', '100 gr')">
             <img src="images/curries/dondakaya_vepudu.webp" alt="Dondakaya Vepudu">
             <h3>Dondakaya Vepudu</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
-        <div class="item">
+        <div class="item" onclick="openDetails('Allam Pachadi', 25, 'images/curries/allam_pachadi.webp', '100 gr')">
             <img src="images/curries/allam_pachadi.webp" alt="Allam Pachadi">
             <h3>Allam Pachadi</h3>
-            <p>₹25</p>
+            <p>₹25 • 100 gr</p>
         </div>
     </div>
 </body>
+
 </html>

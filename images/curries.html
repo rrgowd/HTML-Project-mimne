@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curries - RKL & RRG Tiffin Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #4caf50;
+            font-size: 1.2rem;
+            margin: 0 10px;
+        }
+        .container {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+        .item img {
+            width: 200px;
+            height: 250px;
+            border-radius: 8px;
+        }
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Curries - RKL & RRG Tiffin Service</h1>
+    </header>
+    <nav>
+        <a href="tiffins.html">Tiffins</a>
+    </nav>
+    <div class="container">
+        <!-- Curries -->
+        <div class="item" onclick="openDetails('Gutti Vankaya Koora', 25, '/var/www/html/images/curries/gutti_vankaya_koora.webp')">
+            <img src="/var/www/html/images/curries/gutti_vankaya_koora.webp" alt="Gutti Vankaya Koora">
+            <h3>Gutti Vankaya Koora</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Tomato Pappu', 25, '/var/www/html/images/curries/tomato_pappu.webp')">
+            <img src="/var/www/html/images/curries/tomato_pappu.webp" alt="Tomato Pappu">
+            <h3>Tomato Pappu</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Beerakaya Pulusu', 25, '/var/www/html/images/curries/beerakaya_pulusu.webp')">
+            <img src="/var/www/html/images/curries/beerakaya_pulusu.webp" alt="Beerakaya Pulusu">
+            <h3>Beerakaya Pulusu</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Mamidikaya Pappu', 25, '/var/www/html/images/curries/mamidikaya_pappu.webp')">
+            <img src="/var/www/html/images/curries/mamidikaya_pappu.webp" alt="Mamidikaya Pappu">
+            <h3>Mamidikaya Pappu</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Bendakaya Fry', 25, '/var/www/html/images/curries/bendakaya_fry.webp')">
+            <img src="/var/www/html/images/curries/bendakaya_fry.webp" alt="Bendakaya Fry">
+            <h3>Bendakaya Fry</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Chikkudukaya Vepudu', 25, '/var/www/html/images/curries/chikkudukaya_vepudu.webp')">
+            <img src="/var/www/html/images/curries/chikkudukaya_vepudu.webp" alt="Chikkudukaya Vepudu">
+            <h3>Chikkudukaya Vepudu</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Sorakaya Palu Koora', 25, '/var/www/html/images/curries/sorakaya_palu_koora.webp')">
+            <img src="/var/www/html/images/curries/sorakaya_palu_koora.webp" alt="Sorakaya Palu Koora">
+            <h3>Sorakaya Palu Koora</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Avakai Pachadi', 25, '/var/www/html/images/curries/avakai_pachadi.webp')">
+            <img src="/var/www/html/images/curries/avakai_pachadi.webp" alt="Avakai Pachadi">
+            <h3>Avakai Pachadi</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Dondakaya Vepudu', 25, '/var/www/html/images/curries/dondakaya_vepudu.webp')">
+            <img src="/var/www/html/images/curries/dondakaya_vepudu.webp" alt="Dondakaya Vepudu">
+            <h3>Dondakaya Vepudu</h3>
+            <p>₹25</p>
+        </div>
+        <div class="item" onclick="openDetails('Allam Pachadi', 25, '/var/www/html/images/curries/allam_pachadi.webp')">
+            <img src="/var/www/html/images/curries/allam_pachadi.webp" alt="Allam Pachadi">
+            <h3>Allam Pachadi</h3>
+            <p>₹25</p>
+        </div>
+    </div>
+</body>
+</html>
