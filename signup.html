@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7f50, #ff6347); /* Orange and tomato gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #ff7f50; /* Matching the gradient background color */
+        }
+
+        .checkbox {
+            margin: 15px 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff6347; /* Tomato color for the button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e55347; /* Slightly darker tomato color */
+            transform: translateY(-2px);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center a {
+            color: #ff7f50; /* Orange color for the link */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Footer styles */
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm" action="otp.html" method="GET" onsubmit="return validateForm()">
+            <input type="text" class="input-field" placeholder="First Name" required>
+            <input type="text" class="input-field" placeholder="Last Name" required>
+            <input type="email" class="input-field" id="email" placeholder="Enter your Email" required>
+            <input type="password" class="input-field" id="password" placeholder="Password" required>
+            <input type="password" class="input-field" id="confirmPassword" placeholder="Confirm Password" required>
+            
+            <div class="error" id="passwordError">Passwords do not match!</div>
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" required> I acknowledge that I have read and accept the Terms and Conditions.
+                </label>
+            </div>
+            
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <div class="text-center">
+            <p>Already have an account? <a href="index.html">Login</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Rakesh Gowd Rajulpati. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Get the values of the password and confirm password fields
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                document.getElementById("passwordError").style.display = "block"; // Show error message
+                return false; // Prevent form submission
+            } else {
+                document.getElementById("passwordError").style.display = "none"; // Hide error message
+                return true; // Allow form submission
+            }
+        }
+    </script>
+
+</body>
+</html>

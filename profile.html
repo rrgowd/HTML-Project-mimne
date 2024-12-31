@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .profile-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #28a745;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+        .profile-info p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+        <div class="profile-info">
+            <p><strong>Full Name:</strong> <span id="display-full-name">Data not found</span></p>
+            <p><strong>Email:</strong> <span id="display-email">Data not found</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve user data from local storage
+        const fullName = localStorage.getItem('fullName');
+        const email = localStorage.getItem('email');
+
+        // Check if data exists and display it
+        if (fullName && email) {
+            document.getElementById('display-full-name').textContent = fullName;
+            document.getElementById('display-email').textContent = email;
+        }
+    </script>
+
+</body>
+</html>
